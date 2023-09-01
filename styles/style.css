@@ -13,8 +13,9 @@ html {
   block-size: 100%;
   margin: auto;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: "Fira Sans Condensed", Arial, sans-serif;
   font-size: 18px;
+  font-style: normal;
   background-color: #1b1919;
   display: flex;
   justify-content: center;
@@ -56,22 +57,25 @@ ol {
   justify-content: space-between;
   margin: auto;
   max-inline-size: 1140px;
-  /*width: 100%;*/
+  width: 100%;
   gap: 30px;
 }
 
 .result {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 16px;
 }
 
 .result__video-container {
+  position: relative;
   inline-size: 711px;
   block-size: 386px;
 }
 
 .result__video {
+  position: relative;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -80,12 +84,14 @@ ol {
 
 /*cписок видео справа*/
 .content__details {
-  max-inline-size: 399px;
+  max-width: 400px;
   inline-size: 100%;
   block-size: 100%;
   display: flex;
   flex-direction: column;
   gap: 26px;
+  align-items: flex-start;
+  justify-content: flex-end;
 }
 
 .content__list {
@@ -102,6 +108,9 @@ ol {
 .content__card-link {
   display: block;
   padding: 2px;
+  text-decoration: none;
+  color: inherit;
+  margin: 2px;
 }
 .content__video-card {
   display: flex;
@@ -117,16 +126,14 @@ ol {
 }
 
 .content__video-card-description-container {
-  max-width: 200px;
+  width: 200px;
   width: 100%;
 }
 
 .title,
 .content__video-card-title {
-  color: #fff;
-  font-family: Oswald, sans-serif;
+  font-family: Oswald, Arial, sans-serif;
   font-size: 75px;
-  font-style: normal;
   font-weight: 700;
   line-height: 94%;
   text-transform: uppercase;
@@ -134,11 +141,6 @@ ol {
 
 .content__accent {
   color: #545050;
-}
-
-.content__card-link {
-  text-decoration: none;
-  color: #fff;
 }
 
 .content__video-card-title {
@@ -149,7 +151,7 @@ ol {
 
 .content__video-card-description {
   font-weight: 400;
-  line-height: 16.2px; /* 90% */
+  line-height: 90%; /* 16.2px */
 }
 
 /*форма под видео*/
@@ -159,7 +161,7 @@ ol {
   align-items: flex-start;
 }
 
-fieldset {
+.search-form__fieldset {
   border: 0 none;
   display: flex;
   flex-direction: column;
@@ -167,16 +169,15 @@ fieldset {
 }
 
 .search-form__fieldset-title {
-  color: #fff;
-  font-size: 18px;
-  font-style: normal;
+  font-size: inherit;
+  font-style: inherit;
   font-weight: 400;
   line-height: normal;
 }
 
 .search-form__label {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   width: fit-content;
   gap: 5px;
 }
@@ -184,16 +185,16 @@ fieldset {
 .search-form__textfield {
   background-color: transparent;
   appearance: none;
-  color: rgba(255, 255, 255, 0.7);
-  font-family: Fira Sans Condensed;
-  font-size: 18px;
-  font-style: normal;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
   font-weight: 400;
   line-height: normal;
   min-inline-size: 225px;
   border: none;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
 }
 
 /*чекбоксы*/
@@ -202,11 +203,14 @@ fieldset {
   gap: 15px;
 }
 
-input[type="checkbox"] + span {
+input[type="checkbox"] + .search-form__pseudo-checkbox {
   width: 19px;
   height: 19px;
-  border: 1px solid #fff;
+  border: 1px solid currentColor;
   background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*кнопки*/
@@ -218,24 +222,23 @@ input[type="checkbox"] + span {
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
-  border: 1px solid #fff;
-  color: #fff;
+  color: inherit;
+  border: 1px solid currentColor;
   text-align: center;
-  font-family: Fira Sans Condensed;
-  font-size: 18px;
+  font-family: inherit;
+  font-size: inherit;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  align-self: flex-end;
 }
 
 .search-form__submit-button {
   width: 194px;
-  align-self: flex-end;
 }
 
 .more-button {
-  width: 100%;
-  align-self: flex-end;
+  width: 399px;
 }
 
 /*состояния поля ввода*/
@@ -244,13 +247,13 @@ input[type="text"]:hover {
   outline: none;
 }
 
-input[type="text"]:active {
-  outline: 1px solid #fff;
-  outline-offset: 2px;
+.search-form__textfield:focus {
+  outline: none;
 }
 
-.search-form__label:has(input[type="text"]:focus) {
-  outline: none;
+.search-form__textfield:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 2px;
 }
 
 /*состояния чекбоксов*/
@@ -260,20 +263,15 @@ input[type="text"]:active {
 }
 
 .search-form__label:has(:focus-visible) {
-  outline: 1px solid #fff;
-  outline-offset: 1px;
-}
-
-.search-form__label {
-  position: relative;
+  outline: 1px solid currentColor;
+  outline-offset: 2px;
 }
 
 .search-form__checkbox[type="checkbox"]:checked
   + .search-form__pseudo-checkbox::before {
   content: "";
-  position: absolute;
-  left: 2px;
   top: 2px;
+  left: 2px;
   width: 15px;
   height: 15px;
   background: #fff;
@@ -285,7 +283,7 @@ input[type="text"]:active {
 }
 
 .button:focus-visible {
-  outline: 1px solid #fff;
+  outline: 1px solid currentColor;
   outline-offset: 2px;
 }
 
@@ -300,11 +298,6 @@ input[type="text"]:active {
 }
 
 /*состояния карточек*/
-.content__card-link {
-  display: block;
-  margin: 2px;
-}
-
 .content__card-link_current {
   background: #545050;
 }
@@ -323,5 +316,5 @@ input[type="text"]:active {
 }
 
 .content__card-link:focus-visible {
-  outline: 1px solid #fff;
+  outline: 1px solid currentColor;
 }
