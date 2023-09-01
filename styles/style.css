@@ -10,15 +10,15 @@ html {
 
 .page {
   inline-size: 1200px;
-  block-size: 100vh;
+  block-size: 100%;
   margin: auto;
   color: #fff;
-  font-family: "Fira Sans Condensed", sans-serif;
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 
 h1,
@@ -51,70 +51,73 @@ ol {
 }
 
 .content {
-  width: 100%;
-  height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: auto;
+  max-inline-size: 1140px;
+  /*width: 100%;*/
   gap: 30px;
 }
 
 .result {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 16px;
 }
 
 .result__video-container {
-  position: relative;
-  width: 711px;
-  height: 386px;
-  margin-block-end: 16px;
+  inline-size: 711px;
+  block-size: 386px;
 }
 
 .result__video {
-  position: relative;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 /*cписок видео справа*/
 .content__details {
+  max-inline-size: 399px;
+  inline-size: 100%;
+  block-size: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  max-width: 400px;
-  width: 100%;
-  height: 100%;
-  margin-block-end: 540px;
+  gap: 26px;
 }
 
 .content__list {
   position: relative;
   height: 298px;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
-
 .content__list-item:not(:last-of-type) {
   margin-block-end: 30px;
 }
 
+.content__card-link {
+  display: block;
+  padding: 2px;
+}
 .content__video-card {
   display: flex;
   align-items: flex-start;
-  padding: 2px;
+  justify-content: space-between;
 }
 
 .content__video-card-thumbnail {
   width: 194px;
   height: 103px;
-  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
 }
 
 .content__video-card-description-container {
-  min-width: 200px;
+  max-width: 200px;
   width: 100%;
 }
 
@@ -129,9 +132,6 @@ ol {
   text-transform: uppercase;
 }
 
-.title {
-  margin-block-end: 26px;
-}
 .content__accent {
   color: #545050;
 }
@@ -234,9 +234,8 @@ input[type="checkbox"] + span {
 }
 
 .more-button {
-  width: 399px;
+  width: 100%;
   align-self: flex-end;
-  margin-bottom: 2px;
 }
 
 /*состояния поля ввода*/
